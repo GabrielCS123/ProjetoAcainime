@@ -1,0 +1,300 @@
+/* =====================
+   HOME / DASHBOARD
+===================== */
+
+.page-home {
+  background: var(--bg-gradient);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* CONTAINER */
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 140px 22px 40px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* =====================
+     TEMAS POR ANIME
+  ===================== */
+
+  .theme-naruto{
+    --bg-gradient: radial-gradient(circle at top, #ffcc70, #ff7a00 60%);
+    --primary: #ff5a00;
+    --card-glass: rgba(255, 180, 80, 0.2);
+    --glow: rgba(255, 90, 0, 0.95);
+  }
+  
+.theme-demon {
+  --bg-gradient: radial-gradient(circle at top, #0f2027, #203a43 60%);
+  --primary: #b11226;
+  --card-glass: rgba(177, 18, 38, 0.18);
+  --glow: rgba(177, 18, 38, 0.6);
+}
+
+.theme-onepiece {
+  --bg-gradient: radial-gradient(circle at top, #5d0b10, #2e0505 60%);
+  --primary: #e63946;
+  --card-glass: rgba(230, 57, 70, 0.18);
+  --glow: rgba(230, 57, 70, 0.6);
+}
+
+/* =====================
+     AVATAR DO ANIME
+  ===================== */
+
+.anime-avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+  background-size: cover;
+  background-position: center;
+
+  border: 4px solid var(--primary);
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5), 0 0 50px var(--glow);
+
+  animation: avatarFloat 4s ease-in-out infinite;
+}
+
+/* =====================
+     IMAGENS POR ANIME
+  ===================== */
+
+.theme-naruto .anime-avatar {
+  background-image: url("naruto.jpg");
+}
+
+.theme-demon .anime-avatar {
+  background-image: url("demon.jpg");
+}
+
+.theme-onepiece .anime-avatar {
+  background-image: url("onepiece.jpg");
+}
+
+/* =====================
+     CARDS
+  ===================== */
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: var(--card-glass);
+  border-radius: 18px;
+  padding: 24px;
+  text-align: center;
+  font-size: 1.15rem;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 0.45s ease, background 0.35s ease;
+}
+
+.card:hover {
+  background: var(--card-glass);
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4), 0 0 30px var(--glow);
+}
+
+/* EFEITO DE LUZ */
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.card:hover::after {
+  transform: translateX(120%);
+}
+
+/* =====================
+     LOGO
+  ===================== */
+
+.page-home .logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: url("logo.png") center/cover no-repeat;
+  z-index: 10;
+
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-home .logo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+}
+
+/* =====================
+     HEADER USER
+  ===================== */
+
+.top {
+  position: absolute;
+  top: 32px;
+  right: 24px;
+  text-align: right;
+}
+
+.top h2 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.top span {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* =====================
+     ANIMAÇÕES
+  ===================== */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-home .card {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.page-home .card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.page-home .card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.page-home .card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.page-home .card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* AVATAR FLOAT */
+
+@keyframes avatarFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =====================
+     MOBILE
+  ===================== */
+
+@media (max-width: 480px) {
+  .anime-avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .page-home .logo {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+
+/* =====================
+   AURA ENERGÉTICA
+===================== */
+
+.anime-avatar{
+    position: relative;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  /* Camada da aura */
+  .anime-avatar::before{
+    content:"";
+    position:absolute;
+    inset:-20px;
+    border-radius:50%;
+    background: radial-gradient(
+      circle,
+      transparent 40%,
+      var(--primary) 70%,
+      transparent 80%
+    );
+    filter: blur(18px);
+    opacity: .7;
+    animation: auraPulse 2.5s ease-in-out infinite;
+    z-index:-1;
+  }
+  
+  /* Energia externa */
+  .anime-avatar::after{
+    content:"";
+    position:absolute;
+    inset:-35px;
+    border-radius:50%;
+    border:2px solid var(--primary);
+    filter: blur(10px);
+    opacity:.5;
+    animation: auraSpin 6s linear infinite;
+    z-index:-2;
+  }
+  
+  /* Flutuação estilo anime */
+  @keyframes float{
+    0%,100%{ transform: translateY(0); }
+    50%{ transform: translateY(-10px); }
+  }
+  
+  /* Pulsar da energia */
+  @keyframes auraPulse{
+    0%,100%{ transform: scale(1); opacity:.6; }
+    50%{ transform: scale(1.15); opacity:.9; }
+  }
+  
+  /* Giro da aura */
+  @keyframes auraSpin{
+    from{ transform: rotate(0deg) scale(1); }
+    to{ transform: rotate(360deg) scale(1.1); }
+  }
