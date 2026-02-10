@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo de Memoria</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>JOGO DE MEMORIA</h1>
+    </header>
+
+    <section class="main">
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div id="state">
+        <span id="time">0</span>
+        <span id="score">0</span>
+      </div>
+    </section>
+
+    <section id="pre">
+      <div id="themes">
+        <h2>Escolha seu Tema !</h2>
+        <p id="Naruto" class="themes" title="Naruto">Naruto</p>
+        <p id="demon" class="themes" title="Demon Slayer">Demon Slayer</p>
+        <p id="onepiece" class="themes" title="One Piece">One Piece</p>
+      </div>
+    </section>
+
+    <section id="post" class="hidden">
+      <div>
+        <h2>BRAVO !</h2>
+        <p id="final"></p>
+        <br />
+        <p>
+          <a id="again">Jogue novamente!</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- BOTÃO VOLTAR -->
+    <div class="voltar-container">
+      <button class="btn-voltar" onclick="voltarHome()">
+        ⬅ Voltar para o inicio
+      </button>
+      <script>
+        function voltarHome() {
+          window.location.href = "../../home.html";
+        }
+      </script>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

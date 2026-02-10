@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz JS Online</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <body>
+    <div class="app">
+
+        <!-- TELA INICIAL -->
+        <div id="start-screen" class="start-screen">
+            <h1 class="title">🎮 Quiz de Animes</h1>
+            <p>Escolha um tema:</p>
+            <div class="btn-grid">
+                <button class="theme-btn" data-theme="demon">Demon Slayer</button>
+                <button class="theme-btn" data-theme="onepiece">One Piece</button>
+                <button class="theme-btn" data-theme="naruto">Naruto</button>
+            </div>
+        </div>
+
+        <!-- QUIZ -->
+        <div id="quiz-container" class="quiz-container hide">
+            <div class="quiz-card">
+                <h2 id="question">Pergunta aqui</h2>
+                <div id="answer-buttons" class="btn-grid"></div>
+                <button id="next-btn" class="next-btn hide">Próxima ➜</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTÃO VOLTAR -->
+    <div class="voltar-container">
+        <button class="btn-voltar" onclick="voltarHome()">
+          ⬅ Voltar para o inicio
+        </button>
+        <script>
+          function voltarHome() {
+            window.location.href = "../../home.html";
+          }
+        </script>
+      </div>
+  
+
+    <script src="script.js"></script>
+</body>
+</html>
