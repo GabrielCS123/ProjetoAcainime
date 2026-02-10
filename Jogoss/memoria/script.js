@@ -44,14 +44,11 @@ var library = {
     "https://iili.io/fDzWz7I.png",
     "https://iili.io/fDzWz7I.png",
 
-    "https://iili.io/fDx9odv.png",
-    "https://iili.io/fDx9odv.png",
-
-    "https://iili.io/fDzWIet.png",
-    "https://iili.io/fDzWIet.png",
-
     "https://iili.io/fDzWRXs.png",
-    "https://iili.io/fDzWRXs.png"
+    "https://iili.io/fDzWRXs.png",
+
+    "https://iili.io/fDzWIet.png",
+    "https://iili.io/fDzWIet.png",
   ],
 
   onepiece: [
