@@ -5,25 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
     
-    <body>
+    <div class="quiz-header">
+        <div class="anime-top-avatar" id="animeAvatar"></div>
+        <h2 id="animeTitle"></h2>
+    </div>
+
     <div class="app">
 
-        <!-- TELA INICIAL -->
-        <div id="start-screen" class="start-screen">
-            <h1 class="title">🎮 Quiz de Animes</h1>
-            <p>Escolha um tema:</p>
-            <div class="btn-grid">
-                <button class="theme-btn" data-theme="demon">Demon Slayer</button>
-                <button class="theme-btn" data-theme="onepiece">One Piece</button>
-                <button class="theme-btn" data-theme="naruto">Naruto</button>
-            </div>
-        </div>
-
-        <!-- QUIZ -->
-        <div id="quiz-container" class="quiz-container hide">
+        <!-- QUIZ DIRETO -->
+        <div id="quiz-container" class="quiz-container">
             <div class="quiz-card">
-                <h2 id="question">Pergunta aqui</h2>
+                <h2 id="question">Carregando pergunta...</h2>
                 <div id="answer-buttons" class="btn-grid"></div>
                 <button id="next-btn" class="next-btn hide">Próxima ➜</button>
             </div>
@@ -34,7 +30,7 @@
     <!-- BOTÃO VOLTAR -->
     <div class="voltar-container">
         <button class="btn-voltar" onclick="voltarHome()">
-          ⬅ Voltar para o inicio
+          ⬅ Voltar para o início
         </button>
         <script>
           function voltarHome() {
@@ -42,7 +38,6 @@
           }
         </script>
       </div>
-  
 
     <script src="script.js"></script>
 </body>

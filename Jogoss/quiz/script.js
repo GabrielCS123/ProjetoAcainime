@@ -289,16 +289,39 @@ const questionElement = document.getElementById('question');
 const answerButtonsElement = document.getElementById('answer-buttons');
 const nextButton = document.getElementById('next-btn');
 
-// ====================== SELECAO DE TEMA ======================
-document.querySelectorAll('.theme-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        const theme = btn.dataset.theme;
-        questions = allQuestions[theme];
-        startScreen.classList.add('hide');
-        quizContainer.classList.remove('hide');
-        startQuiz();
-    });
-});
+
+// ====================== PEGAR TEMA SALVO ======================
+const savedTheme = localStorage.getItem("anime");
+
+if (!savedTheme || !allQuestions[savedTheme]) {
+    alert("Nenhum tema encontrado. Volte e escolha seu anime.");
+    window.location.href = "../../home.html";
+}
+
+questions = allQuestions[savedTheme];
+
+// 🔥 APLICA TEMA NO BODY
+document.body.classList.add(`theme-${savedTheme}`);
+
+questions = allQuestions[savedTheme];
+
+// Inicia direto
+startQuiz();
+
+// ====================== IMAGEM + TITULO ======================
+
+const avatar = document.getElementById("animeAvatar");
+const title = document.getElementById("animeTitle");
+
+const animeNames = {
+    naruto: "Naruto",
+    demon: "Demon Slayer",
+    onepiece: "One Piece"
+};
+
+title.textContent = `Quiz - ${animeNames[savedTheme]}`;
+avatar.style.backgroundImage = `url(../../assets/${savedTheme}.png)`;
+
 
 // ====================== FUNCOES ======================
 function startQuiz() {
