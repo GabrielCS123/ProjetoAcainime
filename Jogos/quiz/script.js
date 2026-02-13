@@ -313,6 +313,8 @@ startQuiz();
 const avatar = document.getElementById("animeAvatar");
 const title = document.getElementById("animeTitle");
 
+
+
 const animeNames = {
     naruto: "Naruto",
     demon: "Demon Slayer",
