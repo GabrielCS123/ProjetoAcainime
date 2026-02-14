@@ -210,7 +210,7 @@ button:disabled {
     --secondary: #ffae00;
     --accent: #002aff;
     --bg1: #ff7b00;
-    --bg2: #002aff;
+    --bg2: #ffbb00;
 }
 
 .theme-demon {
@@ -228,5 +228,3 @@ button:disabled {
     --bg1: #0044cc;
     --bg2: #ffcc00;
 }
-
-

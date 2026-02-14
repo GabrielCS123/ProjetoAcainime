@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<body>
-    
+  <body>
     <div class="quiz-header">
-        <div class="anime-top-avatar" id="animeAvatar"></div>
-        <h2 id="animeTitle"></h2>
+      <div class="anime-top-avatar" id="animeAvatar"></div>
+      <h2 id="animeTitle"></h2>
     </div>
 
     <div class="app">
-
-        <!-- QUIZ DIRETO -->
-        <div id="quiz-container" class="quiz-container">
-            <div class="quiz-card">
-                <h2 id="question">Carregando pergunta...</h2>
-                <div id="answer-buttons" class="btn-grid"></div>
-                <button id="next-btn" class="next-btn hide">Próxima ➜</button>
-            </div>
+      <!-- QUIZ DIRETO -->
+      <div id="quiz-container" class="quiz-container">
+        <div class="quiz-card">
+          <h2 id="question">Carregando pergunta...</h2>
+          <div id="answer-buttons" class="btn-grid"></div>
+          <button id="next-btn" class="next-btn hide">Próxima ➜</button>
         </div>
-
+      </div>
     </div>
 
     <!-- BOTÃO VOLTAR -->
     <div class="voltar-container">
-        <button class="btn-voltar" onclick="voltarHome()">
-          ⬅ Voltar para o início
-        </button>
-        <script>
-          function voltarHome() {
-            window.location.href = "../../home.html";
-          }
-        </script>
-      </div>
+      <button class="btn-voltar" onclick="voltarHome()">
+        ⬅ Voltar para o início
+      </button>
+      <script>
+        function voltarHome() {
+          window.location.href = "../../home.html";
+        }
+      </script>
+    </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

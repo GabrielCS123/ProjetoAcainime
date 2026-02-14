@@ -1,266 +1,390 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+:root{
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  text-align: center;
-  background: #910c96;
-  background-image: linear-gradient(to top left, #d35400, #750e7e, #a10f90);
-}
-
-/* HEADER */
-header {
-  letter-spacing: 0.2em;
-  color: whitesmoke;
-  font-size: 34px;
-  padding: 20px 10px;
-  font-weight: normal;
-}
-
-@media only screen and (min-width: 768px) {
-  header {
-    font-size: 42px;
-  }
-}
-
-/* =====================
-   BOTÃO VOLTAR
-===================== */
-
-.voltar-container{
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 40px;
-}
-
-.btn-voltar{
-  background: linear-gradient(135deg, #7a2cff, #b44cff);
-  color: #fff;
-  border: none;
-  padding: 14px 28px;
-  font-size: 1rem;
-  border-radius: 30px;
-  cursor: pointer;
-
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.btn-voltar:hover{
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
-}
-
-.btn-voltar:active{
-  transform: scale(0.97);
-}
-
-
-/* ==============================
-   TABULEIRO (4x4 — QUADRADOS MAIORES)
-   ============================== */
-
-   .main {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
+  --primary:#7a2cff;
+  --secondary:#b44cff;
+  --bg1:#1a1a2e;
+  --bg2:#16213e;
+  --card:#ffffff20;
+  --glass:#ffffff10;
   
-    background: whitesmoke;
-    padding: 10px;
-    border-radius: 6px;
-  
-    width: min(92vw, 480px);
-    aspect-ratio: 1 / 1;
-  
-    margin: 0 auto 20px;
   }
   
-
-@media only screen and (min-width: 768px) {
-  .main {
-    width: 420px;
+  /* RESET */
+  *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, sans-serif;
   }
-}
-
-@media only screen and (min-width: 1024px) {
-  .main {
-    width: 480px; 
+  
+  /* BODY */
+  body{
+  
+  min-height:100vh;
+  
+  background:
+  linear-gradient(-45deg,var(--bg1),var(--bg2),var(--primary),var(--secondary));
+  
+  background-size:400% 400%;
+  
+  animation:gradient 12s ease infinite;
+  
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  
+  color:white;
+  
+  padding:20px;
+  
   }
-}
-
-/* ==============================
-   CARTAS (MAIORES E ESTÁVEIS)
-   ============================== */
-
-/* CONTAINER DA CARTA (FRENTE + VERSO) */
-.box {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 1 / 1;
-  perspective: 1000px;
-}
-
-
-/* CARTA INTERNA (QUE VAI GIRAR) */
-.box-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.4s ease-in-out;
-}
-
-/* QUANDO A CARTA ESTIVER VIRADA */
-.box.flipped .box-inner {
-  transform: rotateY(180deg);
-}
-
-/* FRENTE E VERSO DA CARTA */
-.box-front,
-.box-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* FRENTE (CARTA FECHADA) */
-.box-front {
-  background: #c6b8c8;
-  border: 2px solid #6e0c81;
-}
-
-/* VERSO (ONDE FICA A IMAGEM) */
-.box-back {
-  background: #EAA80B;
-  transform: rotateY(180deg);
-  overflow: hidden;
-}
-
-/* IMAGEM DENTRO DA CARTA */
-.box-back img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; 
-}
-
-/* Carta selecionada */
-.box .outlined {
-  border: solid 2px #6e0c81;
-  background: #EAA80B;
-  opacity: 0.8;
-}
-
-/* ==============================
-   BARRA DE STATUS
-   ============================== */
-
-#state {
-  background: #6e0c81;
-  width: calc(100% - 20px);
-  line-height: 32px;
-  margin: 10px;
-  padding: 0 10px;
-  color: whitesmoke;
-  font-size: 16px;
-  border-radius: 2px;
-}
-
-/* ==============================
-   MODAL INICIAL
-   ============================== */
-
-#pre {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-#themes {
-  padding: 20px;
-  width: 320px;
-  background: whitesmoke;
-  border-radius: 4px;
-}
-
-#themes p {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: solid 1px #6e0c81;
-  background: whitesmoke;
-  color: #9714bb;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-#themes p:hover {
-  background: #EAA80B;
-  color: whitesmoke;
-}
-
-/* ==============================
-   MODAL FINAL
-   ============================== */
-
-#post {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-#post > div {
-  width: 320px;
-  padding: 20px;
-  background: whitesmoke;
-  border-radius: 4px;
-  color: #6e0c81;
-}
-
-#post #again {
-  margin-top: 15px;
-  padding: 10px 20px;
-  border: solid 1px #6e0c81;
-  color: #9714bb;
-  cursor: pointer;
-}
-
-#post #again:hover {
-  background: #EAA80B;
-  color: whitesmoke;
-}
-/* UTILIDADES */
-.hidden {
-  display: none !important;
-}
-
-.show {
-  display: block;
-}
+  
+  /* ANIMAÇÃO DO FUNDO */
+  @keyframes gradient{
+  
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+  
+  }
+  
+  /* HEADER */
+  header{
+  
+  margin-bottom:20px;
+  text-align:center;
+  
+  animation:fadeDown 1s ease;
+  
+  }
+  
+  @keyframes fadeDown{
+  
+  from{
+  opacity:0;
+  transform:translateY(-30px);
+  }
+  
+  to{
+  opacity:1;
+  transform:translateY(0);
+  }
+  
+  }
+  
+  /* =======================
+  TABULEIRO RESPONSIVO
+  ======================= */
+  
+  .main{
+  
+  display:grid;
+  
+  grid-template-columns:repeat(4, 1fr);
+  
+  gap:clamp(8px, 2.5vw, 16px);
+  
+  padding:clamp(12px, 3vw, 20px);
+  
+  width:clamp(280px, 92vw, 420px);
+  
+  background:var(--glass);
+  
+  backdrop-filter:blur(15px);
+  
+  border-radius:20px;
+  
+  box-shadow:0 20px 40px rgba(0,0,0,0.5);
+  
+  animation:fadeUp 1s ease;
+  
+  }
+  
+  @keyframes fadeUp{
+  
+  from{
+  opacity:0;
+  transform:translateY(40px);
+  }
+  
+  to{
+  opacity:1;
+  transform:translateY(0);
+  }
+  
+  }
+  
+  /* =======================
+  CARTAS
+  ======================= */
+  
+  .box{
+  
+  width:100%;
+  
+  aspect-ratio:1/1;
+  
+  perspective:1000px;
+  
+  cursor:pointer;
+  
+  animation:cardAppear .5s ease;
+  
+  }
+  
+  /* ANIMAÇÃO DE ENTRADA */
+  @keyframes cardAppear{
+  
+  from{
+  opacity:0;
+  transform:scale(.6);
+  }
+  
+  to{
+  opacity:1;
+  transform:scale(1);
+  }
+  
+  }
+  
+  .box-inner{
+  
+  width:100%;
+  height:100%;
+  
+  position:relative;
+  
+  transition:transform .6s cubic-bezier(.4,.2,.2,1);
+  
+  transform-style:preserve-3d;
+  
+  }
+  
+  .box.flipped .box-inner{
+  
+  transform:rotateY(180deg);
+  
+  }
+  
+  /* FRENTE E VERSO */
+  
+  .box-front,
+  .box-back{
+  
+  position:absolute;
+  
+  width:100%;
+  height:100%;
+  
+  border-radius:clamp(10px, 2.5vw, 18px);
+  
+  display:flex;
+  
+  align-items:center;
+  justify-content:center;
+  
+  backface-visibility:hidden;
+  
+  overflow:hidden;
+  
+  }
+  
+  /* FRENTE */
+  
+  .box-front{
+  
+  background:linear-gradient(145deg,var(--primary),var(--secondary));
+  
+  border:1px solid rgba(255,255,255,0.25);
+  
+  box-shadow:
+  
+  0 0 15px rgba(122,44,255,.5),
+  inset 0 0 10px rgba(255,255,255,.15);
+  
+  }
+  
+  /* VERSO */
+  
+  .box-back{
+  
+  background:black;
+  
+  transform:rotateY(180deg);
+  
+  }
+  
+  /* IMAGEM — NUNCA CORTA */
+  
+  .box-back img{
+  
+  width:100%;
+  height:100%;
+  
+  object-fit:contain;
+  
+  object-position:center;
+  
+  border-radius:clamp(8px, 2vw, 14px);
+  
+  padding:clamp(4px, 1vw, 8px);
+  
+  background:black;
+  
+  }
+  
+  /* =======================
+  HOVER
+  ======================= */
+  
+  .box:hover{
+  
+  transform:scale(1.05);
+  
+  }
+  
+  /* =======================
+  ESTADO (tempo e score)
+  ======================= */
+  
+  #state{
+  
+  margin-top:20px;
+  
+  background:var(--glass);
+  
+  padding:10px 25px;
+  
+  border-radius:15px;
+  
+  font-size:20px;
+  
+  backdrop-filter:blur(10px);
+  
+  animation:fadeUp 1.2s ease;
+  
+  }
+  
+  /* =======================
+  MODAL
+  ======================= */
+  
+  .modal{
+  
+  background:var(--glass);
+  
+  padding:30px;
+  
+  border-radius:20px;
+  
+  backdrop-filter:blur(20px);
+  
+  text-align:center;
+  
+  animation:zoom 0.5s ease;
+  
+  }
+  
+  @keyframes zoom{
+  
+  from{
+  transform:scale(.5);
+  opacity:0;
+  }
+  
+  to{
+  transform:scale(1);
+  opacity:1;
+  }
+  
+  }
+  
+  /* =======================
+  BOTÃO
+  ======================= */
+  
+  button{
+  
+  margin-top:15px;
+  
+  padding:12px 24px;
+  
+  border:none;
+  
+  border-radius:12px;
+  
+  background:linear-gradient(145deg,var(--primary),var(--secondary));
+  
+  color:white;
+  
+  font-size:16px;
+  
+  cursor:pointer;
+  
+  transition:.3s;
+  
+  box-shadow:0 0 15px rgba(122,44,255,.5);
+  
+  }
+  
+  button:hover{
+  
+  transform:scale(1.1);
+  
+  box-shadow:0 0 25px rgba(180,76,255,.8);
+  
+  }
+  
+  /* =======================
+  BOTÃO VOLTAR
+  ======================= */
+  
+  .btn-voltar{
+  
+  margin-top:25px;
+  
+  }
+  
+  /* =======================
+  UTILIDADES
+  ======================= */
+  
+  .hidden{
+  display:none;
+  }
+  
+  /* =======================
+  RESPONSIVIDADE EXTRA
+  ======================= */
+  
+  @media (max-width:480px){
+  
+  header h1{
+  
+  font-size:22px;
+  
+  }
+  
+  #state{
+  
+  font-size:18px;
+  
+  padding:8px 20px;
+  
+  }
+  
+  }
+  
+  @media (max-width:360px){
+  
+  .main{
+  
+  gap:8px;
+  
+  padding:10px;
+  
+  }
+  
+  }
+  
