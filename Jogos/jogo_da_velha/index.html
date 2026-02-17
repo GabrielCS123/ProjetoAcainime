@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Velha</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top">
+      <h2 id="user"></h2>
+      <span id="animeUser"></span>
+    </div>
+
+    <!-- TELA DE ESCOLHA -->
+    <div id="dark">
+      <div id="box" class="modal-card">
+        <h2>Escolha sua jogada</h2>
+
+        <div class="linha">
+          <p id="playX" data-sign="x" class="btn escolha">Jogar com X</p>
+          <p id="playO" data-sign="o" class="btn escolha">Jogar com O</p>
+        </div>
+
+        <h3>Dificuldade</h3>
+
+        <div class="linha">
+          <p class="btn dificuldade" data-dif="facil">Fácil</p>
+          <p class="btn dificuldade ativo" data-dif="medio">Médio</p>
+          <p class="btn dificuldade" data-dif="dificil">Difícil</p>
+        </div>
+
+        <p id="message" class="hidden"></p>
+      </div>
+    </div>
+
+    <!-- TELA DE FIM DE JOGO -->
+    <div id="endgame" class="hidden">
+      <div class="modal-card">
+        <p id="endgame-message"></p>
+        <div id="endgame-restart" class="btn">Reiniciar</div>
+      </div>
+    </div>
+
+    <!-- TÍTULO -->
+    <header>
+      <h1>Jogo da Velha</h1>
+    </header>
+
+    <!-- TABULEIRO -->
+    <section class="main">
+      <div class="playable play" id="0"></div>
+      <div class="playable play" id="1"></div>
+      <div class="playable play" id="2"></div>
+      <div class="playable play" id="3"></div>
+      <div class="playable play" id="4"></div>
+      <div class="playable play" id="5"></div>
+      <div class="playable play" id="6"></div>
+      <div class="playable play" id="7"></div>
+      <div class="playable play" id="8"></div>
+    </section>
+
+    <!-- BOTÃO VOLTAR -->
+    <div class="voltar-container">
+      <button class="btn-voltar" onclick="voltarHome()">
+        ⬅ Voltar para o inicio
+      </button>
+      <script>
+        function voltarHome() {
+          window.location.href = "../../home.html";
+        }
+      </script>
+    </div>
+
+    <!-- RODAPÉ -->
+    <script src="/js/home.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

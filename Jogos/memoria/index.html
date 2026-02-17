@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Jogo da Memória</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="top">
+      <h2 id="user"></h2>
+      <span id="animeUser"></span>
+    </div>
+
+    <header>
+      <h1 id="titulo">JOGO DA MEMÓRIA</h1>
+      <p id="player"></p>
+    </header>
+
+    <section class="main">
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+      <div class="box play">
+        <div class="box-inner">
+          <div class="box-front"></div>
+          <div class="box-back"><img src="" alt="image" /></div>
+        </div>
+      </div>
+
+    </section>
+
+    <div id="state">
+      ⏱ <span id="time">0</span> ⭐ <span id="score">0</span>
+    </div>
+
+    <section id="post" class="hidden">
+      <div class="modal">
+        <h2>PARABÉNS!</h2>
+        <p id="final"></p>
+        <button id="again">Jogar novamente</button>
+      </div>
+    </section>
+
+    <!-- BOTÃO VOLTAR -->
+    <div class="voltar-container">
+      <button class="btn-voltar" onclick="voltarHome()">
+        ⬅ Voltar para o início
+      </button>
+      <script>
+        function voltarHome() {
+          window.location.href = "../../home.html";
+        }
+      </script>
+    </div>
+
+    <script src="/js/home.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
