@@ -45,15 +45,13 @@ a {
 
 .theme-onepiece {
   --bg-gradient: radial-gradient(circle at top, #0044cc, #00aaff 60%);
-  --primary: #ffcc00;
+  --primary: #0044cc;
   --card-glass: #ffd257;
   --glow: #000000;
+}
 
-  --primary: #0044cc;
-  --secondary: #00aaff;
-  --accent: #ffcc00;
-  --bg1: #0044cc;
-  --bg2: #ffcc00;
+.theme-onepiece .card {
+  color: #000;
 }
 
 
