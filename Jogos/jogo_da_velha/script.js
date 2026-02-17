@@ -9,6 +9,7 @@ var sinalComputador = "";
 var tabuleiro = ["e","e","e","e","e","e","e","e","e"];
 var turno = 0;
 var jogoFinalizado = false;
+var bloqueado = false; // 🔒 NOVO CONTROLE
 
 // ==========================
 // SELETORES DO DOM
@@ -33,18 +34,17 @@ for (var i = 0; i < botoesDificuldade.length; i++) {
 }
 
 // ==========================
-// ESCOLHER DIFICULDADE (VISUAL BONITO)
+// ESCOLHER DIFICULDADE
 // ==========================
 
 function escolherDificuldade(e) {
+
   nivelIA = e.target.getAttribute("data-dif");
 
-  // remove estilo de todos
   for (var i = 0; i < botoesDificuldade.length; i++) {
     botoesDificuldade[i].classList.remove("ativo");
   }
 
-  // adiciona estilo no escolhido
   e.target.classList.add("ativo");
 }
 
@@ -54,24 +54,18 @@ function escolherDificuldade(e) {
 
 function iniciarJogo(e) {
 
-  // só deixa começar se escolher dificuldade
-  if (!nivelIA) {
-    alert("Escolha a dificuldade primeiro!");
-    return;
-  }
-
   dark.classList.add("hidden");
 
   sinalJogador = e.target.getAttribute("data-sign");
   sinalComputador = sinalJogador === "x" ? "o" : "x";
 
-  // se jogador escolher O, computador começa
-  if (sinalJogador === "o") {
-    setTimeout(jogadaComputador, 300);
-  }
-
   for (var i = 0; i < casas.length; i++) {
     casas[i].addEventListener("click", jogadaJogador);
+  }
+
+  if (sinalJogador === "o") {
+    bloqueado = true;
+    setTimeout(jogadaComputador, 500);
   }
 }
 
@@ -80,7 +74,12 @@ function iniciarJogo(e) {
 // ==========================
 
 function jogadaJogador(e) {
+
+  if (bloqueado) return; // 🔒 NÃO DEIXA JOGAR ENQUANTO IA PENSA
   if (!e.target.classList.contains("playable")) return;
+  if (jogoFinalizado) return;
+
+  bloqueado = true; // 🔒 BLOQUEIA IMEDIATAMENTE
 
   e.target.innerHTML = sinalJogador;
   e.target.classList.remove("playable");
@@ -91,9 +90,9 @@ function jogadaJogador(e) {
 
   if (!jogoFinalizado) {
     setTimeout(jogadaComputador, 500);
+  } else {
+    bloqueado = false;
   }
-
-  e.target.removeEventListener("click", jogadaJogador);
 }
 
 // ==========================
@@ -101,17 +100,22 @@ function jogadaJogador(e) {
 // ==========================
 
 function jogadaComputador() {
-  if (jogoFinalizado) return;
+
+  if (jogoFinalizado) {
+    bloqueado = false;
+    return;
+  }
 
   var movimento = logicaIA();
 
   casas[movimento].innerHTML = sinalComputador;
   casas[movimento].classList.remove("playable");
-  casas[movimento].removeEventListener("click", jogadaJogador);
   tabuleiro[movimento] = sinalComputador;
   turno++;
 
   verificarFim("computador");
+
+  bloqueado = false; // 🔓 LIBERA DEPOIS QUE IA JOGA
 }
 
 // ==========================
@@ -160,19 +164,17 @@ function verificarTabuleiro(sinal) {
 }
 
 // ==========================
-// LÓGICA DA IA (MELHORADA)
+// LÓGICA IA (mantida igual)
 // ==========================
 
 function logicaIA() {
 
-  // 🔵 FÁCIL — erra bastante
   if (nivelIA === "facil") {
     if (Math.random() < 0.7) {
-      return aleatorio(tabuleiro.length);
+      return aleatorio(9);
     }
   }
 
-  // 🔴 DIFÍCIL — tenta GANHAR primeiro
   if (nivelIA === "dificil") {
     for (var i = 0; i < 9; i++) {
       if (tabuleiro[i] === "e") {
@@ -186,7 +188,6 @@ function logicaIA() {
     }
   }
 
-  // 🟡 MÉDIO — tenta BLOQUEAR primeiro
   if (nivelIA === "medio" || nivelIA === "dificil") {
     for (var i = 0; i < 9; i++) {
       if (tabuleiro[i] === "e") {
@@ -200,25 +201,20 @@ function logicaIA() {
     }
   }
 
-  // Centro primeiro (boa estratégia)
-  if (tabuleiro[4] === "e") {
-    return 4;
-  }
+  if (tabuleiro[4] === "e") return 4;
 
-  // Depois cantos
-  var cantos = [0, 2, 6, 8];
+  var cantos = [0,2,6,8];
   for (var c = 0; c < cantos.length; c++) {
     if (tabuleiro[cantos[c]] === "e") {
       return cantos[c];
     }
   }
 
-  // Última opção: aleatório
-  return aleatorio(tabuleiro.length);
+  return aleatorio(9);
 }
 
 // ==========================
-// REINICIAR JOGO
+// REINICIAR
 // ==========================
 
 function reiniciar(msg) {
@@ -230,21 +226,20 @@ function reiniciar(msg) {
   tabuleiro = ["e","e","e","e","e","e","e","e","e"];
   turno = 0;
   jogoFinalizado = false;
+  bloqueado = false; // 🔓 garante reset
 
   for (var j = 0; j < casas.length; j++) {
     casas[j].innerHTML = "";
     casas[j].classList.add("playable");
-    casas[j].removeEventListener("click", jogadaJogador);
   }
 
-  // volta os botões depois
   setTimeout(function () {
     mensagem.classList.add("hidden");
   }, 1500);
 }
 
 // ==========================
-// NÚMERO ALEATÓRIO VÁLIDO
+// ALEATÓRIO VÁLIDO
 // ==========================
 
 function aleatorio(num) {

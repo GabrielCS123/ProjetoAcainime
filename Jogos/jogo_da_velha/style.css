@@ -10,173 +10,197 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-family: "Segoe UI", sans-serif;
   text-align: center;
-  background: linear-gradient(180deg, #6a0dad, #9b30ff, #ff8c00);
-}
 
-/* ====== FUNDO ESCURO DO MODAL ====== */
-#dark {
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6);
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
+  background: linear-gradient(135deg, #1a0026, #3a0066, #7a2cff);
+  background-size: 300% 300%;
+  animation: bgMove 10s ease infinite;
 
-/* ====== CARD CENTRAL (ESTILO SEU SITE) ====== */
-.modal-card {
-  background: #2a0b3d;
-  padding: 25px;
-  border-radius: 18px;
-  width: 320px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
   color: white;
 }
 
-/* Títulos dentro do modal */
-.modal-card h2 {
-  margin-bottom: 15px;
-  font-weight: 500;
+@keyframes bgMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
+/* =====================
+     HEADER USER
+  ===================== */
+
+.top {
+  position: absolute;
+  top: 32px;
+  right: 24px;
+  text-align: right;
+}
+
+.top h2 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.top span {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+/* ================= MODAL ================= */
+
+#dark,
+#endgame {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+}
+
+.modal-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 20px;
+  width: 320px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-card h2,
 .modal-card h3 {
-  margin: 12px 0;
-  font-weight: 400;
+  margin-bottom: 15px;
 }
 
-/* Organiza botões em linha */
+/* ================= BOTÕES ================= */
+
 .linha {
   display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
-/* ====== BOTÕES (X, O, DIFICULDADE, REINICIAR) ====== */
 .btn {
   flex: 1;
   padding: 12px;
   border-radius: 12px;
-  background: #7b1fa2;
-  color: white;
-  text-align: center;
-  font-size: 16px;
+  background: linear-gradient(135deg, #7a2cff, #b44cff);
   cursor: pointer;
-  transition: 0.2s;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: 0.25s;
+  font-weight: 500;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {
-  background: #ffb300;
-  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.45);
 }
 
-/* Botão selecionado */
 .ativo {
-  background: #ffb300;
+  background: linear-gradient(135deg, #ffb300, #ff8800);
   color: black;
 }
 
-/* Mensagem final */
-#message, #endgame-message {
-  margin-top: 15px;
-  font-size: 18px;
-}
+/* ================= TÍTULO ================= */
 
-/* ====== TÍTULO DO JOGO ====== */
 header h1 {
-  letter-spacing: 0.2em;
-  color: whitesmoke;
-  font-size: 38px;
-  margin: 20px 0;
+  margin: 25px 0;
+  margin-top: 120px;
+  font-size: clamp(26px, 5vw, 42px);
+  letter-spacing: 0.1em;
+  text-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
-/* ====== TABULEIRO ====== */
-.main {
-  width: 262px;
-  height: 262px;
-  padding: 5px;
-  margin: auto;
-  background: whitesmoke;
-  border-radius: 12px;
+/* ================= TABULEIRO ================= */
 
-  /* 🔽 IMPEDIR BUG DE MOVIMENTO */
+.main {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
+  gap: 12px;
+
+  width: clamp(260px, 85vw, 360px);
+  padding: 18px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+
+  animation: fadeIn 0.6s ease;
 }
 
+/* CASAS */
 
-/* Casas do jogo */
 .main div {
-  width: 80px;
-  height: 80px;
-  margin: 2px;
-  background: #c6b8c8;
-  float: left;
-  border-radius: 8px;
+  aspect-ratio: 1/1;
+  background: linear-gradient(145deg, #5c2b8f, #7a2cff);
+  border-radius: 14px;
 
-  /* 🔽 IMPORTANTE: controla o tamanho do X e O */
-  font-size: 48px;        /* antes estava 60px (muito grande) */
-  line-height: 80px;      /* centraliza verticalmente */
-  text-align: center;     /* centraliza horizontalmente */
-  font-family: monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: clamp(40px, 10vw, 65px);
+  font-weight: bold;
   text-transform: uppercase;
 
-  /* 🔽 Impede qualquer “empurrão” no layout */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
+/* Hover suave */
 
-/* Efeito hover nas casas jogáveis */
 .main .playable:hover {
-  background: #c1a6d8;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(180, 76, 255, 0.8);
 }
 
-/* ====== TELA DE FIM DE JOGO ====== */
-#endgame {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.6);
+/* Cor diferente para X e O */
+
+.main div:contains("x") {
+  color: #00eaff;
 }
 
-/* ====== CLASSE PARA ESCONDER ====== */
-.hidden {
-  display: none !important;
+.main div:contains("o") {
+  color: #ffcc00;
 }
 
-/* ====== RODAPÉ ====== */
-footer {
-  margin-top: 15px;
-  color: whitesmoke;
-  font-size: 14px;
+/* ================= FIM DE JOGO ================= */
+
+#endgame-message {
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
-/* =====================
-   BOTÃO VOLTAR
-===================== */
+/* ================= BOTÃO VOLTAR ================= */
 
-.voltar-container{
-  display: flex;
-  justify-content: center;
-  margin: 30px 0 40px;
+.voltar-container {
+  margin: 65px 0 50px;
 }
 
-.btn-voltar{
+.btn-voltar {
   background: linear-gradient(135deg, #7a2cff, #b44cff);
   color: #fff;
   border: none;
@@ -185,33 +209,21 @@ footer {
   border-radius: 30px;
   cursor: pointer;
 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  transition: transform .25s ease, box-shadow .25s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  transition: 0.25s;
 }
 
-.btn-voltar:hover{
-  transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+.btn-voltar:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-.btn-voltar:active{
-  transform: scale(0.97);
+.btn-voltar:active {
+  transform: scale(0.95);
 }
 
+/* ================= UTIL ================= */
 
-@media only screen and (min-width: 768px) {
-  .main div {
-    width: 100px;
-    height: 100px;
-    margin: 2px;
-    font-size: 60px;
-    line-height: 100px;
-  }
-}
-@media only screen and (min-width: 768px) {
-  .main {
-    width: 332px;
-    height: 332px;
-    padding: 8px;
-  }
+.hidden {
+  display: none !important;
 }

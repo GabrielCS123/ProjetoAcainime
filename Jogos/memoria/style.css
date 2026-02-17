@@ -1,390 +1,367 @@
-:root{
+:root {
+  --primary: #7a2cff;
+  --secondary: #b44cff;
+  --bg1: #1a1a2e;
+  --bg2: #16213e;
+  --card: #ffffff20;
+  --glass: #ffffff10;
+}
 
-  --primary:#7a2cff;
-  --secondary:#b44cff;
-  --bg1:#1a1a2e;
-  --bg2:#16213e;
-  --card:#ffffff20;
-  --glass:#ffffff10;
-  
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Segoe UI, sans-serif;
+}
+
+/* BODY */
+body {
+  min-height: 100vh;
+
+  background: linear-gradient(
+    -45deg,
+    var(--bg1),
+    var(--bg2),
+    var(--primary),
+    var(--secondary)
+  );
+
+  background-size: 400% 400%;
+
+  animation: gradient 12s ease infinite;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  padding: 20px;
+}
+
+/* ANIMAÇÃO DO FUNDO */
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  /* RESET */
-  *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Segoe UI, sans-serif;
+  50% {
+    background-position: 100% 50%;
   }
-  
-  /* BODY */
-  body{
-  
-  min-height:100vh;
-  
-  background:
-  linear-gradient(-45deg,var(--bg1),var(--bg2),var(--primary),var(--secondary));
-  
-  background-size:400% 400%;
-  
-  animation:gradient 12s ease infinite;
-  
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  
-  color:white;
-  
-  padding:20px;
-  
+  100% {
+    background-position: 0% 50%;
   }
-  
-  /* ANIMAÇÃO DO FUNDO */
-  @keyframes gradient{
-  
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-  
+}
+
+/* HEADER */
+header {
+  margin-bottom: 20px;
+  margin-top: 100px;
+  text-align: center;
+
+  animation: fadeDown 1s ease;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
   }
-  
-  /* HEADER */
-  header{
-  
-  margin-bottom:20px;
-  text-align:center;
-  
-  animation:fadeDown 1s ease;
-  
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  @keyframes fadeDown{
-  
-  from{
-  opacity:0;
-  transform:translateY(-30px);
-  }
-  
-  to{
-  opacity:1;
-  transform:translateY(0);
-  }
-  
-  }
-  
-  /* =======================
+}
+
+/* =======================
   TABULEIRO RESPONSIVO
   ======================= */
-  
-  .main{
-  
-  display:grid;
-  
-  grid-template-columns:repeat(4, 1fr);
-  
-  gap:clamp(8px, 2.5vw, 16px);
-  
-  padding:clamp(12px, 3vw, 20px);
-  
-  width:clamp(280px, 92vw, 420px);
-  
-  background:var(--glass);
-  
-  backdrop-filter:blur(15px);
-  
-  border-radius:20px;
-  
-  box-shadow:0 20px 40px rgba(0,0,0,0.5);
-  
-  animation:fadeUp 1s ease;
-  
+
+.main {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: clamp(8px, 2.5vw, 16px);
+
+  padding: clamp(12px, 3vw, 20px);
+
+  width: clamp(280px, 92vw, 420px);
+
+  background: var(--glass);
+
+  backdrop-filter: blur(15px);
+
+  border-radius: 20px;
+
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
   }
-  
-  @keyframes fadeUp{
-  
-  from{
-  opacity:0;
-  transform:translateY(40px);
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  to{
-  opacity:1;
-  transform:translateY(0);
-  }
-  
-  }
-  
-  /* =======================
+}
+
+/* =======================
   CARTAS
   ======================= */
-  
-  .box{
-  
-  width:100%;
-  
-  aspect-ratio:1/1;
-  
-  perspective:1000px;
-  
-  cursor:pointer;
-  
-  animation:cardAppear .5s ease;
-  
+
+.box {
+  width: 100%;
+
+  aspect-ratio: 1/1;
+
+  perspective: 1000px;
+
+  cursor: pointer;
+
+  animation: cardAppear 0.5s ease;
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+@keyframes cardAppear {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
   }
-  
-  /* ANIMAÇÃO DE ENTRADA */
-  @keyframes cardAppear{
-  
-  from{
-  opacity:0;
-  transform:scale(.6);
+
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-  
-  to{
-  opacity:1;
-  transform:scale(1);
-  }
-  
-  }
-  
-  .box-inner{
-  
-  width:100%;
-  height:100%;
-  
-  position:relative;
-  
-  transition:transform .6s cubic-bezier(.4,.2,.2,1);
-  
-  transform-style:preserve-3d;
-  
-  }
-  
-  .box.flipped .box-inner{
-  
-  transform:rotateY(180deg);
-  
-  }
-  
-  /* FRENTE E VERSO */
-  
-  .box-front,
-  .box-back{
-  
-  position:absolute;
-  
-  width:100%;
-  height:100%;
-  
-  border-radius:clamp(10px, 2.5vw, 18px);
-  
-  display:flex;
-  
-  align-items:center;
-  justify-content:center;
-  
-  backface-visibility:hidden;
-  
-  overflow:hidden;
-  
-  }
-  
-  /* FRENTE */
-  
-  .box-front{
-  
-  background:linear-gradient(145deg,var(--primary),var(--secondary));
-  
-  border:1px solid rgba(255,255,255,0.25);
-  
-  box-shadow:
-  
-  0 0 15px rgba(122,44,255,.5),
-  inset 0 0 10px rgba(255,255,255,.15);
-  
-  }
-  
-  /* VERSO */
-  
-  .box-back{
-  
-  background:black;
-  
-  transform:rotateY(180deg);
-  
-  }
-  
-  /* IMAGEM — NUNCA CORTA */
-  
-  .box-back img{
-  
-  width:100%;
-  height:100%;
-  
-  object-fit:contain;
-  
-  object-position:center;
-  
-  border-radius:clamp(8px, 2vw, 14px);
-  
-  padding:clamp(4px, 1vw, 8px);
-  
-  background:black;
-  
-  }
-  
-  /* =======================
+}
+
+.box-inner {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+
+  transform-style: preserve-3d;
+}
+
+.box.flipped .box-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRENTE E VERSO */
+
+.box-front,
+.box-back {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: clamp(10px, 2.5vw, 18px);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  backface-visibility: hidden;
+
+  overflow: hidden;
+}
+
+/* FRENTE */
+
+.box-front {
+  background: linear-gradient(145deg, var(--primary), var(--secondary));
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow: 0 0 15px rgba(122, 44, 255, 0.5),
+    inset 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+/* VERSO */
+
+.box-back {
+  background: black;
+
+  transform: rotateY(180deg);
+}
+
+/* IMAGEM — NUNCA CORTA */
+
+.box-back img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  object-position: center;
+
+  border-radius: clamp(8px, 2vw, 14px);
+
+  padding: clamp(4px, 1vw, 8px);
+
+  background: black;
+}
+
+/* =======================
   HOVER
   ======================= */
-  
-  .box:hover{
-  
-  transform:scale(1.05);
-  
-  }
-  
-  /* =======================
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+/* =======================
   ESTADO (tempo e score)
   ======================= */
-  
-  #state{
-  
-  margin-top:20px;
-  
-  background:var(--glass);
-  
-  padding:10px 25px;
-  
-  border-radius:15px;
-  
-  font-size:20px;
-  
-  backdrop-filter:blur(10px);
-  
-  animation:fadeUp 1.2s ease;
-  
-  }
-  
-  /* =======================
+
+#state {
+  margin-top: 20px;
+
+  background: var(--glass);
+
+  padding: 10px 25px;
+
+  border-radius: 15px;
+
+  font-size: 20px;
+
+  backdrop-filter: blur(10px);
+
+  animation: fadeUp 1.2s ease;
+}
+
+/* =======================
   MODAL
   ======================= */
-  
-  .modal{
-  
-  background:var(--glass);
-  
-  padding:30px;
-  
-  border-radius:20px;
-  
-  backdrop-filter:blur(20px);
-  
-  text-align:center;
-  
-  animation:zoom 0.5s ease;
-  
+
+.modal {
+  background: var(--glass);
+
+  padding: 30px;
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(20px);
+
+  text-align: center;
+
+  animation: zoom 0.5s ease;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
   }
-  
-  @keyframes zoom{
-  
-  from{
-  transform:scale(.5);
-  opacity:0;
+
+  to {
+    transform: scale(1);
+    opacity: 1;
   }
-  
-  to{
-  transform:scale(1);
-  opacity:1;
-  }
-  
-  }
-  
-  /* =======================
+}
+
+/* =======================
   BOTÃO
   ======================= */
-  
-  button{
-  
-  margin-top:15px;
-  
-  padding:12px 24px;
-  
-  border:none;
-  
-  border-radius:12px;
-  
-  background:linear-gradient(145deg,var(--primary),var(--secondary));
-  
-  color:white;
-  
-  font-size:16px;
-  
-  cursor:pointer;
-  
-  transition:.3s;
-  
-  box-shadow:0 0 15px rgba(122,44,255,.5);
-  
-  }
-  
-  button:hover{
-  
-  transform:scale(1.1);
-  
-  box-shadow:0 0 25px rgba(180,76,255,.8);
-  
-  }
-  
-  /* =======================
+
+button {
+  margin-top: 15px;
+
+  padding: 12px 24px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: linear-gradient(145deg, var(--primary), var(--secondary));
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+  box-shadow: 0 0 15px rgba(122, 44, 255, 0.5);
+}
+
+button:hover {
+  transform: scale(1.1);
+
+  box-shadow: 0 0 25px rgba(180, 76, 255, 0.8);
+}
+
+/* =======================
   BOTÃO VOLTAR
   ======================= */
-  
-  .btn-voltar{
-  
-  margin-top:25px;
-  
-  }
-  
-  /* =======================
+
+.btn-voltar {
+  margin-top: 25px;
+}
+
+/* =======================
   UTILIDADES
   ======================= */
-  
-  .hidden{
-  display:none;
+
+.hidden {
+  display: none;
+}
+
+/* =====================
+     HEADER USER
+  ===================== */
+
+  .top {
+    position: absolute;
+    top: 32px;
+    right: 24px;
+    text-align: right;
   }
   
-  /* =======================
+  .top h2 {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+  
+  .top span {
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+
+
+/* =======================
   RESPONSIVIDADE EXTRA
   ======================= */
-  
-  @media (max-width:480px){
-  
-  header h1{
-  
-  font-size:22px;
-  
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 22px;
   }
-  
-  #state{
-  
-  font-size:18px;
-  
-  padding:8px 20px;
-  
+
+  #state {
+    font-size: 18px;
+
+    padding: 8px 20px;
   }
-  
+}
+
+@media (max-width: 360px) {
+  .main {
+    gap: 8px;
+
+    padding: 10px;
   }
-  
-  @media (max-width:360px){
-  
-  .main{
-  
-  gap:8px;
-  
-  padding:10px;
-  
-  }
-  
-  }
-  
+}

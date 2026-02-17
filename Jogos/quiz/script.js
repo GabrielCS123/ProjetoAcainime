@@ -320,7 +320,7 @@ const animeNames = {
 };
 
 title.textContent = `Quiz - ${animeNames[savedTheme]}`;
-avatar.style.backgroundImage = `url(../../assets/${savedTheme}.png)`;
+avatar.style.backgroundImage = `url(../../imagens/${savedTheme}.jpg)`;
 
 
 // ====================== FUNCOES ======================

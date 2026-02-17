@@ -44,11 +44,18 @@ a {
 }
 
 .theme-onepiece {
-  --bg-gradient: radial-gradient(circle at top, #5d0b10, #2e0505 60%);
-  --primary: #e63946;
-  --card-glass: rgba(230, 57, 70, 0.18);
-  --glow: rgba(230, 57, 70, 0.6);
+  --bg-gradient: radial-gradient(circle at top, #0044cc, #00aaff 60%);
+  --primary: #ffcc00;
+  --card-glass: #ffd257;
+  --glow: #000000;
+
+  --primary: #0044cc;
+  --secondary: #00aaff;
+  --accent: #ffcc00;
+  --bg1: #0044cc;
+  --bg2: #ffcc00;
 }
+
 
 /* =====================
      AVATAR DO ANIME
@@ -248,6 +255,10 @@ a {
     width: 90px;
     height: 90px;
   }
+  .cards {
+    padding-top: 200px;
+  }
+  
 }
 
 /* =====================
