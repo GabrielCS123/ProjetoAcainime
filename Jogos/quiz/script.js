@@ -11,7 +11,7 @@ const allQuestions = {
             ]
         },
         {
-            question: 'Qual é a irmã de Tanjiro?',
+            question: 'Quem é a irmã de Tanjiro?',
             answers: [
                 { text: 'Nezuko', correct: true },
                 { text: 'Shinobu', correct: false },
@@ -38,7 +38,7 @@ const allQuestions = {
             ]
         },
         {
-            question: 'Quem usa a Respiração do Trovão?',
+            question: 'Qual personagem usa a Respiração do Trovão?',
             answers: [
                 { text: 'Inosuke', correct: false },
                 { text: 'Zenitsu', correct: true },
@@ -83,7 +83,7 @@ const allQuestions = {
             ]
         },
         {
-            question: 'Quem usa duas espadas serrilhadas?',
+            question: 'Qual personagem usa duas espadas serrilhadas?',
             answers: [
                 { text: 'Tanjiro', correct: false },
                 { text: 'Zenitsu', correct: false },
@@ -186,7 +186,7 @@ const allQuestions = {
     ],
     naruto: [
         {
-            question: 'Qual é o sobrenome de Naruto?',
+            question: 'Qual é o clã do Naruto?',
             answers: [
                 { text: 'Uchiha', correct: false },
                 { text: 'Uzumaki', correct: true },
@@ -195,7 +195,7 @@ const allQuestions = {
             ]
         },
         {
-            question: 'Quem é o melhor amigo de Naruto?',
+            question: 'Quem é o melhor amigo do Naruto?',
             answers: [
                 { text: 'Kakashi', correct: false },
                 { text: 'Sasuke', correct: true },
@@ -204,7 +204,7 @@ const allQuestions = {
             ]
         },
         {
-            question: 'Qual raposa Naruto possui dentro de si?',
+            question: 'Qual biju Naruto possui dentro de si?',
             answers: [
                 { text: 'Shukaku', correct: false },
                 { text: 'Kurama', correct: true },
@@ -222,7 +222,7 @@ const allQuestions = {
             ]
         },
         {
-            question: 'Qual é o clã de Sasuke?',
+            question: 'Qual é o clã do Sasuke?',
             answers: [
                 { text: 'Senju', correct: false },
                 { text: 'Uchiha', correct: true },

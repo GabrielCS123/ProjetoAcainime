@@ -28,14 +28,6 @@
 
 /* ====================== BASE ====================== */
 
-:root {
-    --primary: #4b0082;
-    --secondary: #cd0dca;
-    --accent: #ffcc00;
-    --bg1: #4b0082;
-    --bg2: #ffcc00;
-}
-
 body {
     font-family: sans-serif;
     background: linear-gradient(135deg, var(--bg1), var(--bg2));
@@ -57,7 +49,7 @@ body {
 /* ====================== QUIZ CONTAINER ====================== */
 
 .quiz-container {
-    background: rgba(255, 255, 255, 0.97);
+    background :var(--accent);
     padding: 50px 40px;
     border-radius: 24px;
     box-shadow: 
@@ -266,25 +258,25 @@ button:disabled {
 /* ================= TEMAS ================= */
 
 .theme-naruto {
-    --primary: #ff7b00;
-    --secondary: #ffae00;
-    --accent: #002aff;
-    --bg1: #ff7b00;
-    --bg2: #ffbb00;
+    --primary: #FF6B00;
+    --secondary: #ffc403;
+    --accent: #003f7e;
+    --bg1: #FF6B00;
+    --bg2: #ffc403;
 }
 
 .theme-demon {
-    --primary: #8b0000;
-    --secondary: #000000;
-    --accent: #ff0000;
-    --bg1: #1a0000;
-    --bg2: #8b0000;
+    --primary: #0D0D0D;
+    --secondary: #1F3A2E;
+    --accent: #1c7fd62c;
+    --bg1: #0D0D0D;
+    --bg2: #1F3A2E;
 }
 
 .theme-onepiece {
     --primary: #0044cc;
     --secondary: #00aaff;
-    --accent: #ffcc00;
+    --accent: #ffd21f;
     --bg1: #0044cc;
-    --bg2: #ffcc00;
+    --bg2: #00aaff;
 }

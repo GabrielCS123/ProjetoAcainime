@@ -30,35 +30,24 @@ a {
   ===================== */
 
 .theme-naruto {
-  --bg-gradient: radial-gradient(circle at top, #ffcc70, #ff7a00 60%);
-  --primary: #ff5a00;
-  --card-glass: rgba(255, 180, 80, 0.2);
-  --glow: rgba(255, 90, 0, 0.95);
+  --bg-gradient: radial-gradient(circle at top, #FF6B00, #ffc403 60%);
+  --card-glass: #003f7e;
+  --glow: #ffe81a;
+  --primary: #FF6B00;
 }
 
 .theme-demon {
-  --bg-gradient: radial-gradient(circle at top, #0f2027, #203a43 60%);
-  --primary: #b11226;
-  --card-glass: rgba(177, 18, 38, 0.18);
-  --glow: rgba(177, 18, 38, 0.6);
-  --primary: #8b0000;
-  --secondary: #000000;
-  --accent: #ff0000;
-  --bg1: #1a0000;
-  --bg2: #8b0000;
+  --bg-gradient: radial-gradient(circle at top, #0D0D0D, #1F3A2E 60%);
+  --card-glass: #1c7fd62c;
+  --glow: #1F3A2E;
+  --primary: #0D0D0D;
 }
 
 .theme-onepiece {
   --bg-gradient: radial-gradient(circle at top, #0044cc, #00aaff 60%);
-  --primary: #ffcc00;
-  --card-glass: #ffd257;
-  --glow: #000000;
-
+  --card-glass: #ffd21f;
+  --glow: #00aaff;
   --primary: #0044cc;
-  --secondary: #00aaff;
-  --accent: #ffcc00;
-  --bg1: #0044cc;
-  --bg2: #ffcc00;
 }
 
 
