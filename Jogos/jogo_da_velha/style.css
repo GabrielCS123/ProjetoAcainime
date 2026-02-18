@@ -122,6 +122,10 @@ body {
   color: black;
 }
 
+.voltar {
+  margin-top: 30px;
+}
+
 /* ================= TÍTULO ================= */
 
 header h1 {
