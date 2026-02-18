@@ -41,6 +41,11 @@ a {
   --primary: #b11226;
   --card-glass: rgba(177, 18, 38, 0.18);
   --glow: rgba(177, 18, 38, 0.6);
+  --primary: #8b0000;
+  --secondary: #000000;
+  --accent: #ff0000;
+  --bg1: #1a0000;
+  --bg2: #8b0000;
 }
 
 .theme-onepiece {
