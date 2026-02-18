@@ -246,6 +246,14 @@ header {
   MODAL
   ======================= */
 
+  .modal button {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  background: var(--primary, --secondary); 
+}
+
+
 .modal {
   background: var(--glass);
 
@@ -264,12 +272,6 @@ header {
   animation: zoom 0.5s ease;
 }
 
-.modal button {
-  display: block;
-  width: 100%;
-  margin-top: 15px;
-  background: var(--primary, --secondary); 
-}
 
 @keyframes zoom {
   from {
