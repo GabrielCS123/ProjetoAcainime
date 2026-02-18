@@ -255,6 +255,10 @@ header {
 
   backdrop-filter: blur(20px);
 
+  position: relative;
+
+  top: -370px;
+
   text-align: center;
 
   animation: zoom 0.5s ease;
