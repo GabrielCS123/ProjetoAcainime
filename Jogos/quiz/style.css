@@ -1,7 +1,7 @@
 .quiz-header {
     text-align: center;
-    margin-bottom: 20px;
-    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-top: 20px;
 }
 
 .anime-top-avatar {
@@ -11,7 +11,7 @@
     border-radius: 50%;
     background-size: cover;
     background-position: center;
-    border: 4px solid white;
+    border: 4px solid var(--bg1);
     box-shadow: 0 8px 20px rgba(0,0,0,0.35);
     transition: transform .3s ease;
 }
@@ -27,14 +27,6 @@
 }
 
 /* ====================== BASE ====================== */
-
-:root {
-    --primary: #4b0082;
-    --secondary: #cd0dca;
-    --accent: #ffcc00;
-    --bg1: #4b0082;
-    --bg2: #ffcc00;
-}
 
 body {
     font-family: sans-serif;
@@ -57,7 +49,7 @@ body {
 /* ====================== QUIZ CONTAINER ====================== */
 
 .quiz-container {
-    background: rgba(255, 255, 255, 0.97);
+    background :var(--accent);
     padding: 50px 40px;
     border-radius: 24px;
     box-shadow: 
@@ -85,7 +77,7 @@ body {
     font-size: 26px;
     margin-bottom: 35px;
     font-weight: 700;
-    color: var(--primary);
+    color: white;
     line-height: 1.4;
 }
 
@@ -132,7 +124,7 @@ button:disabled {
 #next-btn {
     margin-top: 40px;
     width: 100%;
-    background: linear-gradient(135deg, var(--primary), #5c0874);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     border: none;
     padding: 20px;
@@ -177,7 +169,7 @@ button:disabled {
 }
   
 .btn-voltar{
-    background: linear-gradient(135deg, #7a2cff, #b44cff);
+    background: var(--primary);
     color: #fff;
     border: none;
     padding: 14px 28px;
@@ -266,25 +258,25 @@ button:disabled {
 /* ================= TEMAS ================= */
 
 .theme-naruto {
-    --primary: #ff7b00;
-    --secondary: #ffae00;
-    --accent: #002aff;
-    --bg1: #ff7b00;
-    --bg2: #ffbb00;
+    --primary: #FF6B00;
+    --secondary: #ffc403;
+    --accent: #003f7e;
+    --bg1: #FF6B00;
+    --bg2: #ffc403;
 }
 
 .theme-demon {
-    --primary: #8b0000;
-    --secondary: #000000;
-    --accent: #ff0000;
-    --bg1: #1a0000;
-    --bg2: #8b0000;
+    --primary: #0D0D0D;
+    --secondary: #1F3A2E;
+    --accent: #1c7fd62c;
+    --bg1: #0D0D0D;
+    --bg2: #1F3A2E;
 }
 
 .theme-onepiece {
     --primary: #0044cc;
     --secondary: #00aaff;
-    --accent: #ffcc00;
+    --accent: #ffd21f;
     --bg1: #0044cc;
-    --bg2: #ffcc00;
+    --bg2: #00aaff;
 }

@@ -30,7 +30,6 @@ if (!nome || !anime) {
 document.getElementById("user").textContent = `Olá, ${nome} 👋`;
 document.getElementById("animeUser").textContent = `Anime escolhido: ${nome_anime}`;
 
-
 // ==========================
 // BIBLIOTECA DE IMAGENS
 // ==========================
